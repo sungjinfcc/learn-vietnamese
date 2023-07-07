@@ -1,11 +1,14 @@
 import React from "react";
-import Header from "./Header";
+import TutorCard from "./Modules/TutorCard";
 
 function Tutor() {
   return (
     <div className="tutor">
-      <Header />
-      Tutor
+      <TutorCard />
+      <TutorCard />
+      <TutorCard />
+      <TutorCard />
+      <TutorCard />
     </div>
   );
 }

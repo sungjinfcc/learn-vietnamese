@@ -1,11 +1,25 @@
 import React from "react";
-import Header from "./Header";
+import { Link } from "react-router-dom";
 
 function MyPageStudent() {
   return (
     <div className="my-page-student">
-      <Header />
-      MyPageStudent
+      <div className="info">
+        <img src="/assets/person.png" alt="face" />
+        <p>name</p>
+        <Link to="/mypage/student">&gt;&gt;</Link>
+      </div>
+      <div className="admin-request">
+        <p>payment request</p>
+        <button type="button">Click to Pay</button>
+      </div>
+      <div className="card-current">
+        <p className="name">Tutor name</p>
+        <p className="class">Upcoming class info</p>
+        <p className="date-time">7/3 10:00 ~ 12:00</p>
+        <Link to="/mypage/student">more info</Link>
+        <button type="button">Leave a review</button>
+      </div>
     </div>
   );
 }
