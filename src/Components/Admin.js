@@ -6,19 +6,19 @@ function Admin() {
     <div className="admin">
       <div className="card">
         <p>Student</p>
-        <Link to="/admin">&gt;&gt;</Link>
+        <Link to="/admin/student">&gt;&gt;</Link>
       </div>
       <div className="card">
         <p>Tutor</p>
-        <Link to="/admin">&gt;&gt;</Link>
+        <Link to="/admin/tutor">&gt;&gt;</Link>
       </div>
       <div className="card">
         <p>Register</p>
-        <Link to="/admin">&gt;&gt;</Link>
+        <Link to="/admin/register">&gt;&gt;</Link>
       </div>
       <div className="card">
         <p>Feedback</p>
-        <Link to="/admin">&gt;&gt;</Link>
+        <Link to="/admin/feedback">&gt;&gt;</Link>
       </div>
     </div>
   );

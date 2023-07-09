@@ -10,6 +10,10 @@ import Admin from "./Components/Admin";
 import Header from "./Components/Header";
 import Login from "./Components/Login";
 import initializeFirebase from "./firebase";
+import AdminStudent from "./Components/AdminStudent";
+import AdminTutor from "./Components/AdminTutor";
+import AdminRegister from "./Components/AdminRegister";
+import AdminFeedback from "./Components/AdminFeedback";
 
 function App() {
   const navigate = useNavigate();
@@ -67,8 +71,27 @@ function App() {
         />
         <Route path="/mypage/student" element={<MyPageStudent />} />
         <Route path="/mypage/tutor" element={<MyPageTutor />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route
+          path="/admin"
+          element={<Admin getDataList={firebase.getDataList} />}
+        />
         <Route path="/login" element={<Login firebase={firebase} />} />
+        <Route
+          path="/admin/student"
+          element={<AdminStudent getDataList={firebase.getDataList} />}
+        />
+        <Route
+          path="/admin/tutor"
+          element={<AdminTutor getDataList={firebase.getDataList} />}
+        />
+        <Route
+          path="/admin/register"
+          element={<AdminRegister getDataList={firebase.getDataList} />}
+        />
+        <Route
+          path="/admin/feedback"
+          element={<AdminFeedback getDataList={firebase.getDataList} />}
+        />
       </Routes>
     </>
   );

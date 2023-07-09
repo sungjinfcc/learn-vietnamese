@@ -12,7 +12,6 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
-  onAuthStateChanged,
 } from "firebase/auth";
 
 const initializeFirebase = () => {
