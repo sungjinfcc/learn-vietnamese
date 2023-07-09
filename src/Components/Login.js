@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-function Login() {
+function Login({ firebase }) {
   return (
     <div className="login">
       <div className="login-card">
@@ -11,7 +10,9 @@ function Login() {
         <input type="text" placeholder="password" />
         <button type="button">Login</button>
         <div className="social-buttons">
-          <button type="button">G</button>
+          <button type="button" onClick={firebase.signInWithGoogle}>
+            G
+          </button>
           <button type="button">F</button>
           <button type="button">A</button>
         </div>
