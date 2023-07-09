@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function AdminStudent({ getDataList }) {
+function AdminStudent({ getDataList, addData }) {
   const [users, setUsers] = useState([]);
   const fetchData = async () => {
     const user = await getDataList("user");
@@ -10,6 +10,13 @@ function AdminStudent({ getDataList }) {
     fetchData();
   }, []);
 
+  const sendRequest = async (uid) => {
+    await addData("request", {
+      uid,
+      type: "payment",
+    });
+  };
+
   return (
     <div className="admin-student">
       {users
@@ -17,8 +24,13 @@ function AdminStudent({ getDataList }) {
         .map((user) => {
           return (
             <div className="card">
-              <p>UID : {user.uid}</p>
-              <p>Email : {user.email}</p>
+              <div className="non-button">
+                <p>UID : {user.uid}</p>
+                <p>Email : {user.email}</p>
+              </div>
+              <button type="button" onClick={() => sendRequest(user.uid)}>
+                Send request
+              </button>
             </div>
           );
         })}

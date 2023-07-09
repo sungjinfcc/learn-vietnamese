@@ -88,6 +88,21 @@ const initializeFirebase = () => {
     return null;
   }
 
+  async function getRequests(uid) {
+    const myCol = collection(db, "request");
+    const myQuery = query(myCol, where("uid", "==", uid));
+    const querySnapshot = await getDocs(myQuery);
+
+    if (!querySnapshot.empty) {
+      const documentDataArray = querySnapshot.docs.map((documentSnapshot) =>
+        documentSnapshot.data()
+      );
+      return documentDataArray;
+    }
+
+    return null;
+  }
+
   async function addData(colName, data, isUser = false, isFeedback = false) {
     const myCol = collection(db, colName);
     if (isUser) {
@@ -128,6 +143,7 @@ const initializeFirebase = () => {
     auth,
     getDataList,
     getDocumentByUID,
+    getRequests,
     addData,
     signInWithGoogle,
     logOut,

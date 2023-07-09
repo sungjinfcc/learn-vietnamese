@@ -40,6 +40,14 @@ a:visited {
   text-decoration: none;
 }
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 /* header */
 .header {
   display: flex;
@@ -473,6 +481,15 @@ a:visited {
   border-radius: 1rem;
   margin-top: 1rem;
   gap: 1rem;
+}
+
+.admin-student button,
+.admin-tutor button,
+.admin-register button,
+.admin-feedback button {
+  background-color: var(--color-dark-gray);
+  color: var(--color-light-gray);
+  align-self: flex-end;
 }
 
 /* Login */

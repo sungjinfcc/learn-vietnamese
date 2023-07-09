@@ -14,6 +14,7 @@ import AdminStudent from "./Components/AdminStudent";
 import AdminTutor from "./Components/AdminTutor";
 import AdminRegister from "./Components/AdminRegister";
 import AdminFeedback from "./Components/AdminFeedback";
+import Loading from "./Components/Loading";
 
 function App() {
   const navigate = useNavigate();
@@ -69,7 +70,19 @@ function App() {
           path="/register"
           element={<Register addData={firebase.addData} />}
         />
-        <Route path="/mypage/student" element={<MyPageStudent />} />
+        <Route
+          path="/mypage/student"
+          element={
+            currentUser ? (
+              <MyPageStudent
+                uid={currentUser.uid}
+                getRequests={firebase.getRequests}
+              />
+            ) : (
+              <Loading />
+            )
+          }
+        />
         <Route path="/mypage/tutor" element={<MyPageTutor />} />
         <Route
           path="/admin"
@@ -78,7 +91,12 @@ function App() {
         <Route path="/login" element={<Login firebase={firebase} />} />
         <Route
           path="/admin/student"
-          element={<AdminStudent getDataList={firebase.getDataList} />}
+          element={
+            <AdminStudent
+              getDataList={firebase.getDataList}
+              addData={firebase.addData}
+            />
+          }
         />
         <Route
           path="/admin/tutor"
